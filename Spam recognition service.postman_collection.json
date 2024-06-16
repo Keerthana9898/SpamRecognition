@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "d63b3a8f-2e2f-4181-a45f-b24d9e245f8b",
+		"name": "Spam recognition service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17348748"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"9982736452\",\n    \"username\": \"TestUser1\",\n    \"password\": \"Password@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/registeration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"registeration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"9182736452\",\n    \"username\": \"user1\",\n    \"password\": \"Password@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mark as Spam",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4NDgwNDk4LCJpYXQiOjE3MTg0Nzk1OTgsImp0aSI6ImU0MWNhN2RlNTVmYTQwMzBiNzBhOGU5YWZlZmEwYTM0IiwidXNlcl9pZCI6MX0.v3JMhMDVmStBVogVDpVqk9P_oLZdiXbj_0haWiXxbnU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"8765432113\",\n    \"reason\": \"telemarketing\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/spam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"spam"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user to global db",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4NDgwNDk4LCJpYXQiOjE3MTg0Nzk1OTgsImp0aSI6ImU0MWNhN2RlNTVmYTQwMzBiNzBhOGU5YWZlZmEwYTM0IiwidXNlcl9pZCI6MX0.v3JMhMDVmStBVogVDpVqk9P_oLZdiXbj_0haWiXxbnU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Shweta1\",\n    \"phone_number\": \"8765432113\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/globaldb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"globaldb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get data using name",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4NDgxOTU5LCJpYXQiOjE3MTg0ODEwNTksImp0aSI6IjlkZmFkZTAwMjFjMDQ4NzE4NDRiZTE0Y2NlNmE4YWQ4IiwidXNlcl9pZCI6NH0.JKw2jnQGZojBxYlPp7NFp6uGtHSxQgSn3Aulox_1nOg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/globaldb?query=Zara&type=name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"globaldb"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Zara"
+						},
+						{
+							"key": "type",
+							"value": "name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get data using phone number",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE4NDgxOTU5LCJpYXQiOjE3MTg0ODEwNTksImp0aSI6IjlkZmFkZTAwMjFjMDQ4NzE4NDRiZTE0Y2NlNmE4YWQ4IiwidXNlcl9pZCI6NH0.JKw2jnQGZojBxYlPp7NFp6uGtHSxQgSn3Aulox_1nOg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/globaldb?query=9876543201&type=phone_number",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"globaldb"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "9876543201"
+						},
+						{
+							"key": "type",
+							"value": "phone_number"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
